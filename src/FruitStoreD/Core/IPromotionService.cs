@@ -7,7 +7,7 @@ namespace FruitStoreD
 {
     public delegate object GetDto();
     public delegate decimal CalcDiscount(object dto);
-    public interface IPromotion
+    public interface IPromotionService
     {
         decimal RuleA(GetDto getDto, CalcDiscount calcDiscount);
     }

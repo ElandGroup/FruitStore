@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace FruitStoreD
 {
-    public class Promotion : IPromotion
+    public class PromotionService : IPromotionService
     {
         public decimal RuleA(GetDto getDto, CalcDiscount calcDiscount)
         {

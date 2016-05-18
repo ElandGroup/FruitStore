@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace FruitStoreD
 {
@@ -9,9 +10,15 @@ namespace FruitStoreD
     {
         public static void Main(string[] args)
         {
-            IPromotion promotion = new Promotion();
-            IAppleService appleService = new AppleService();
-            IBananaService bService = new BananaService();
+
+            var builder = new ConfigurationBuilder()
+             .AddJsonFile("appsettings.json");
+            IConfigurationRoot configuration = builder.Build();
+
+            IPromotionService promotion = FruitFactory.CreateObject<IPromotionService>(configuration["Promotion"]);
+            IAppleService appleService = FruitFactory.CreateObject<IAppleService>(configuration["AppleService"]);
+            IBananaService bService = FruitFactory.CreateObject<IBananaService>(configuration["BananaService"]);
+
             decimal aPrice = promotion.RuleA(appleService.GetAppleDto, appleService.AppleDiscount);
 
             decimal bPrice = promotion.RuleA(bService.GetBananaDto, bService.BananaDiscount);
