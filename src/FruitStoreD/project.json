@@ -1,6 +1,6 @@
 ﻿{
   "version": "1.0.0-*",
-  "description": "FruitStore Console Application",
+  "description": "FruitStoreD Console Application",
   "authors": [ "Administrator" ],
   "tags": [ "" ],
   "projectUrl": "",
@@ -14,11 +14,10 @@
   },
 
   "commands": {
-    "FruitStore": "FruitStore"
+    "FruitStoreD": "FruitStoreD"
   },
 
   "frameworks": {
     "dnx451": { }
-
   }
 }
